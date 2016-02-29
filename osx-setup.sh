@@ -7,6 +7,7 @@ open "https://www.spotify.com/de/download/"
 open "https://github.com/stonesam92/ChitChat/releases/latest"
 open "https://itunes.apple.com/de/app/1password/id443987910?mt=12#"
 open "https://pqrs.org/osx/karabiner/seil.html.en"
+open "https://itunes.apple.com/de/app/wunderlist-to-do-liste/id410628904?mt=12"
 
 defaults write com.apple.finder AppleShowAllFiles YES
 
@@ -36,3 +37,4 @@ sudo chown -R apinnecke:admin /src
 # install osx-setup
 git clone apinnecke/osx-setup /src/apinnecke/osx-setup
 brew install $(cat /src/apinnecke/osx-setup/brew-packages)
+brew cask install $(cat /src/apinnecke/osx-setup/brew-cask-packages)
