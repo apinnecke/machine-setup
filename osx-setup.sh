@@ -1,17 +1,19 @@
 #!/bin/bash
 
 open "http://dropbox.com/downloading?src=index"
-open "https://pqrs.org/osx/karabiner/"
-open "https://www.iterm2.com/downloads.html"
-open "https://www.spotify.com/de/download/"
-open "https://github.com/stonesam92/ChitChat/releases/latest"
-open "https://itunes.apple.com/de/app/1password/id443987910?mt=12#"
-open "https://pqrs.org/osx/karabiner/seil.html.en"
 open "https://itunes.apple.com/de/app/wunderlist-to-do-liste/id410628904?mt=12"
 
 defaults write com.apple.finder AppleShowAllFiles YES
 
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+brew install \
+	git hub git-flow ack htop-osx awscli node bash-completion lynx \
+	nvm terraform mcrypt thefuck ffind tree clang-format otto wget
+brew cask install \
+	iterm2 1password chitchat karabiner seil google-chrome firefox opera atom \
+	caffeine evernote flycut lastfm skype slack spotify spotify-notifications \
+	sublime-text vagrant vagrant-manager virtualbox vlc viscosity 
 
 brew install git hub
 alias git="hub"
