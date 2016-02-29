@@ -6,6 +6,7 @@ open "https://www.iterm2.com/downloads.html"
 open "https://www.spotify.com/de/download/"
 open "https://github.com/stonesam92/ChitChat/releases/latest"
 open "https://itunes.apple.com/de/app/1password/id443987910?mt=12#"
+open "https://pqrs.org/osx/karabiner/seil.html.en"
 
 defaults write com.apple.finder AppleShowAllFiles YES
 
