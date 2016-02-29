@@ -10,12 +10,12 @@ defaults write com.apple.finder AppleShowAllFiles YES
 brew install \
 	git hub git-flow ack htop-osx awscli node bash-completion lynx \
 	nvm terraform mcrypt thefuck ffind tree clang-format otto wget
+
 brew cask install \
 	iterm2 1password chitchat karabiner seil google-chrome firefox opera atom \
 	caffeine evernote flycut lastfm skype slack spotify spotify-notifications \
-	sublime-text vagrant vagrant-manager virtualbox vlc viscosity 
+	sublime-text vagrant vagrant-manager virtualbox vlc viscosity
 
-brew install git hub
 alias git="hub"
 
 vi install_dropbox_and_wait_for_sync # exit with :q! when dropbox is installed
