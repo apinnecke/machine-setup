@@ -9,7 +9,8 @@ defaults write com.apple.finder AppleShowAllFiles YES
 
 brew install \
 	ruby git hub git-flow ack htop-osx awscli node bash-completion lynx \
-	nvm terraform mcrypt thefuck ffind tree clang-format otto wget
+	nvm terraform mcrypt thefuck ffind tree clang-format otto wget \
+	docker docker-compose docker-machine
 
 brew cask install \
 	iterm2 1password chitchat karabiner seil google-chrome firefox opera atom \
@@ -17,6 +18,7 @@ brew cask install \
 	sublime-text vagrant vagrant-manager virtualbox vlc viscosity screenhero
 
 sudo gem install git-up
+echo 'require_confirmation = False' >> ~/.config/thefuck/settings.py
 alias git="hub"
 
 vi install_dropbox_and_wait_for_sync # exit with :q! when dropbox is installed
