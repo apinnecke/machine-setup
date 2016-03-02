@@ -8,7 +8,7 @@ defaults write com.apple.finder AppleShowAllFiles YES
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 brew install \
-	git hub git-flow ack htop-osx awscli node bash-completion lynx \
+	ruby git hub git-flow ack htop-osx awscli node bash-completion lynx \
 	nvm terraform mcrypt thefuck ffind tree clang-format otto wget
 
 brew cask install \
@@ -16,6 +16,7 @@ brew cask install \
 	caffeine evernote flycut lastfm skype slack spotify spotify-notifications \
 	sublime-text vagrant vagrant-manager virtualbox vlc viscosity screenhero
 
+sudo gem install git-up
 alias git="hub"
 
 vi install_dropbox_and_wait_for_sync # exit with :q! when dropbox is installed
