@@ -42,4 +42,4 @@ bash ~/dotfiles/linkfiles.sh
 sudo mkdir -p /src
 sudo chown -R apinnecke:admin /src
 
-sudo npm install -g gulp-cli pm2
+sudo npm install -g gulp-cli pm2 typings
