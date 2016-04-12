@@ -5,6 +5,9 @@ open "https://itunes.apple.com/de/app/wunderlist-to-do-liste/id410628904?mt=12"
 
 defaults write com.apple.finder AppleShowAllFiles YES
 
+curl -sSL https://get.rvm.io | bash
+rvm install ruby-2.3.0
+
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 brew install \
