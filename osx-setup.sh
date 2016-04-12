@@ -16,7 +16,7 @@ brew cask install \
 	iterm2 1password chitchat karabiner seil google-chrome firefox opera atom \
 	caffeine evernote flycut lastfm skype slack spotify spotify-notifications \
 	sublime-text vagrant vagrant-manager virtualbox vlc viscosity screenhero \
-	java hyperdock
+	java spectacle
 
 gem install git-up
 
