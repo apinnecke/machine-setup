@@ -11,7 +11,7 @@ rvm install ruby-2.3.0
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 brew install \
-	ruby git hub git-flow ack htop-osx awscli node bash-completion lynx \
+	git hub git-flow ack htop-osx awscli node bash-completion lynx \
 	nvm terraform mcrypt thefuck ffind tree clang-format otto wget \
 	docker docker-compose docker-machine
 
