@@ -11,7 +11,7 @@ rvm install ruby-2.3.0
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 brew install \
-	git hub git-flow ack htop-osx awscli node bash-completion lynx \
+	python git hub git-flow ack htop-osx awscli node bash-completion lynx \
 	nvm terraform mcrypt thefuck ffind tree clang-format otto wget \
 	docker docker-compose docker-machine
 
@@ -21,7 +21,7 @@ brew cask install \
 	sublime-text vagrant vagrant-manager virtualbox vlc viscosity screenhero \
 	java spectacle mysqlworkbench sequel-pro
 
-gem install git-up
+pip install --upgrade git-up
 
 sudo gem install git-up
 echo 'require_confirmation = False' >> ~/.config/thefuck/settings.py
