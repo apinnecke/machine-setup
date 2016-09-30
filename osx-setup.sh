@@ -43,7 +43,7 @@ git clone apinnecke/dotfiles ~/dotfiles
 cd ~/dotfiles && git submodule update --init
 bash ~/dotfiles/linkfiles.sh
 
-apm install --packages-file package-list.txt
+apm install --packages-file ~/dotfiles/atom-package-list.txt || echo "Installing apm packages failed"
 
 # create source dir files, use go structure
 mkdir -p ~/src/github.com ~/pkg ~/bin
