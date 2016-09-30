@@ -1,7 +1,9 @@
 #!/bin/bash
 
-open "http://dropbox.com/downloading?src=index"
+open "https://www.dropbox.com/downloading?src=index"
 open "https://itunes.apple.com/de/app/wunderlist-to-do-liste/id410628904?mt=12"
+open "https://docs.docker.com/docker-for-mac/"
+open "https://www.jetbrains.com/webstorm/download/"
 
 defaults write com.apple.finder AppleShowAllFiles YES
 
@@ -11,15 +13,15 @@ rvm install ruby-2.3.0
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 brew install \
-	python git hub git-flow ack htop-osx awscli node bash-completion lynx \
-	nvm terraform mcrypt thefuck ffind tree clang-format otto wget \
-	docker docker-compose docker-machine
+	python git hub git-flow ack htop-osx awscli bash-completion lynx \
+	nvm terraform mcrypt thefuck ffind tree clang-format wget lame \
+	boris composer
 
 brew cask install \
-	iterm2 1password chitchat karabiner seil google-chrome firefox opera atom \
+	iterm2 1password whatsapp karabiner seil google-chrome firefox opera atom \
 	caffeine evernote flycut lastfm skype slack spotify spotify-notifications \
-	sublime-text vagrant vagrant-manager virtualbox vlc viscosity screenhero \
-	java spectacle mysqlworkbench sequel-pro
+	sublime-text vagrant vagrant-manager virtualbox vlc viscosity java spectacle \
+	mysqlworkbench sequel-pro psequel tuxguitar usb-overdrive wireshark
 
 pip install --upgrade git-up
 
@@ -41,8 +43,7 @@ git clone apinnecke/dotfiles ~/dotfiles
 cd ~/dotfiles && git submodule update --init
 bash ~/dotfiles/linkfiles.sh
 
-# create src dir
-sudo mkdir -p /src
-sudo chown -R apinnecke:admin /src
+apm install --packages-file package-list.txt
 
-sudo npm install -g gulp-cli pm2 typings
+# create source dir files, use go structure
+mkdir -p ~/src/github.com ~/pkg ~/bin
