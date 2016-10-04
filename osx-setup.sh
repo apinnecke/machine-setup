@@ -39,7 +39,7 @@ unzip ~/ssh.zip
 chmod 0600 ~/.ssh/id_*
 
 # install dotfiles
-git clone apinnecke/dotfiles ~/dotfiles
+git clone git@github.com:apinnecke/dotfiles.git ~/dotfiles
 cd ~/dotfiles && git submodule update --init
 bash ~/dotfiles/linkfiles.sh
 
