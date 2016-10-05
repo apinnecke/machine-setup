@@ -12,10 +12,15 @@ rvm install ruby-2.3.0
 
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
+
+brew tap homebrew/completions
+brew tap homebrew/php
+brew tap wercker/wercker
+
 brew install \
 	python git hub git-flow ack htop-osx awscli bash-completion lynx \
 	nvm terraform mcrypt thefuck ffind tree clang-format wget lame \
-	boris composer
+	boris composer bash-completion wercker-cli
 
 brew cask install \
 	iterm2 1password whatsapp karabiner seil google-chrome firefox opera atom \
@@ -29,7 +34,7 @@ sudo gem install git-up
 echo 'require_confirmation = False' >> ~/.config/thefuck/settings.py
 alias git="hub"
 
-vi install_dropbox_and_wait_for_sync # exit with :q! when dropbox is installed
+vi install_dropbox_and_docker_and_wait_for_sync # exit with :q! when dropbox and docker are installed
 
 bash Dropbox/Configs/karabiner-import.sh
 
@@ -42,6 +47,13 @@ chmod 0600 ~/.ssh/id_*
 git clone git@github.com:apinnecke/dotfiles.git ~/dotfiles
 cd ~/dotfiles && git submodule update --init
 bash ~/dotfiles/linkfiles.sh
+
+# install docker bash completion
+pushd /usr/local/etc/bash_completion.d
+ln -s /Applications/Docker.app/Contents/Resources/etc/docker.bash-completion  
+ln -s /Applications/Docker.app/Contents/Resources/etc/docker-machine.bash-completion  
+ln -s /Applications/Docker.app/Contents/Resources/etc/docker-compose.bash-completion  
+popd
 
 apm install --packages-file ~/dotfiles/atom-package-list.txt || echo "Installing apm packages failed"
 
