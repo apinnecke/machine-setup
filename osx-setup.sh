@@ -20,7 +20,7 @@ brew tap wercker/wercker
 brew install \
 	python git hub git-flow ack htop-osx awscli bash-completion lynx \
 	nvm terraform mcrypt thefuck ffind tree clang-format wget lame \
-	boris composer bash-completion wercker-cli
+	boris composer bash-completion wercker-cli awscli terraform
 
 brew cask install \
 	iterm2 1password whatsapp karabiner seil google-chrome firefox opera atom \
