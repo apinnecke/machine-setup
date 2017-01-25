@@ -20,13 +20,16 @@ brew tap wercker/wercker
 brew install \
 	python git hub git-flow ack htop-osx awscli bash-completion lynx \
 	nvm terraform mcrypt thefuck ffind tree clang-format wget lame \
-	boris composer bash-completion wercker-cli awscli terraform
+	boris composer bash-completion wercker-cli awscli terraform tldr \
+	kubernetes-helm kubernetes-cli kops watch shyaml awscli git-crypt gpg-agent
+	
 
 brew cask install \
 	iterm2 1password whatsapp karabiner seil google-chrome firefox opera atom \
 	caffeine evernote flycut lastfm skype slack spotify spotify-notifications \
 	sublime-text vagrant vagrant-manager virtualbox vlc viscosity java spectacle \
-	mysqlworkbench sequel-pro psequel tuxguitar usb-overdrive wireshark
+	mysqlworkbench sequel-pro psequel tuxguitar usb-overdrive wireshark valentina-studio \
+	xccello
 
 pip install --upgrade git-up
 
