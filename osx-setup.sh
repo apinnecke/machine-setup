@@ -12,7 +12,6 @@ rvm install ruby-2.3.0
 
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-
 brew tap homebrew/completions
 brew tap homebrew/php
 brew tap wercker/wercker
@@ -22,7 +21,6 @@ brew install \
 	nvm terraform mcrypt thefuck ffind tree clang-format wget lame \
 	boris composer bash-completion wercker-cli awscli terraform tldr \
 	kubernetes-helm kubernetes-cli kops watch shyaml awscli git-crypt gpg-agent
-	
 
 brew cask install \
 	iterm2 1password whatsapp karabiner seil google-chrome firefox opera atom \
@@ -46,6 +44,15 @@ cp ~/Dropbox/ssh.zip ~/
 unzip ~/ssh.zip
 chmod 0600 ~/.ssh/id_*
 
+# install gpg key files
+tmpd="$(mktemp -d)"
+pushd $tmpd
+unzip ~/Dropbox/gpg.zip
+gpg --import secret-gpg.key
+gpg --import-ownertrust ownertrust-gpg.txt
+popd
+rm -rf $tmpd
+
 # install dotfiles
 git clone git@github.com:apinnecke/dotfiles.git ~/dotfiles
 cd ~/dotfiles && git submodule update --init
@@ -53,9 +60,8 @@ bash ~/dotfiles/linkfiles.sh
 
 # install docker bash completion
 pushd /usr/local/etc/bash_completion.d
-ln -s /Applications/Docker.app/Contents/Resources/etc/docker.bash-completion  
-ln -s /Applications/Docker.app/Contents/Resources/etc/docker-machine.bash-completion  
-ln -s /Applications/Docker.app/Contents/Resources/etc/docker-compose.bash-completion  
+ln -s /Applications/Docker.app/Contents/Resources/etc/docker.bash-completion
+ln -s /Applications/Docker.app/Contents/Resources/etc/docker-compose.bash-completion
 popd
 
 apm install --packages-file ~/dotfiles/atom-package-list.txt || echo "Installing apm packages failed"
