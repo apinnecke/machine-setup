@@ -27,7 +27,7 @@ brew cask install \
 	caffeine evernote flycut lastfm skype slack spotify spotify-notifications \
 	sublime-text vagrant vagrant-manager virtualbox vlc viscosity java spectacle \
 	mysqlworkbench sequel-pro psequel tuxguitar usb-overdrive wireshark valentina-studio \
-	xccello
+	xccello postman
 
 pip install --upgrade git-up
 
