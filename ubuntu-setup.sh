@@ -5,6 +5,7 @@ set -e
 echo "Add additional apt repositories ..."
 sudo add-apt-repository -y ppa:graphics-drivers/ppa
 sudo add-apt-repository -y ppa:mozillateam/firefox-next
+sudo apt-add-repository -y ppa:ansible/ansible
 
 echo "Install updates ..."
 sudo apt-get update
@@ -12,6 +13,8 @@ sudo apt-get upgrade -y
 
 echo "Install dependencies and utilities ..."
 sudo apt-get install -y \
+	net-tools \
+	ruby \
 	direnv \
 	firefox \
 	htop \
@@ -21,7 +24,11 @@ sudo apt-get install -y \
 	curl \
 	software-properties-common \
 	"linux-image-extra-$(uname -r)" \
-        linux-image-extra-virtual
+  linux-image-extra-virtual \
+	vagrant \
+	virtualbox \
+	virtualbox-dkms \
+	ansible
 
 if ! type "docker" > /dev/null; then
 	echo "Install Docker ..." \
