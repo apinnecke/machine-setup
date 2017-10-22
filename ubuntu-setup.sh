@@ -2,10 +2,21 @@
 
 set -e
 
-echo "Add additional apt repositories ..."
-sudo add-apt-repository -y ppa:graphics-drivers/ppa
-sudo add-apt-repository -y ppa:mozillateam/firefox-next
-sudo apt-add-repository -y ppa:ansible/ansible
+LISTS="$(grep -o '^[^#]*' /etc/apt/sources.list /etc/apt/sources.list.d/* | sort | uniq)"
+
+for p in graphics-drivers/ppa mozillateam/firefox-next ansible/ansible ; do
+	if [[ "${LISTS}" != *"${p}"* ]]; then
+		sudo add-apt-repository -y "ppa:${p}"
+	fi
+done
+
+if [ ! -f "/usr/local/bin/apt-remove-duplicate-source-entries.py" ]; then
+	sudo apt install python3-apt \
+		&& sudo curl -L https://raw.githubusercontent.com/davidfoerster/apt-remove-duplicate-source-entries/master/apt-remove-duplicate-source-entries.py \
+			-o /usr/local/bin/apt-remove-duplicate-source-entries.py \
+		&& sudo chmod +x /usr/local/bin/apt-remove-duplicate-source-entries.py
+fi
+sudo /usr/local/bin/apt-remove-duplicate-source-entries.py
 
 echo "Install updates ..."
 sudo apt-get update
@@ -84,5 +95,14 @@ if [ ! -d "$HOME/dotfiles" ]; then
 	bash ~/dotfiles/linkfiles.sh
 	popd
 fi
+
+if [ "$(dpkg -l | grep spotify | wc -l)" == "0" ]; then
+	echo "Install Spotify ..." &&
+		sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys BBEBDCB318AD50EC6865090613B00F1FD2C19886 0DF731E45CE24F27EEEB1450EFDC8610341D9410 &&
+		sudo add-apt-repository "deb http://repository.spotify.com stable non-free" &&
+		sudo apt-get update &&
+		sudo apt-get install spotify-client
+fi
+
 
 echo "Done!"
