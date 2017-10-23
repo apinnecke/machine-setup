@@ -39,7 +39,10 @@ sudo apt-get install -y \
 	vagrant \
 	virtualbox \
 	virtualbox-dkms \
-	ansible
+	ansible \
+	openvpn \
+	network-manager-openvpn \
+	network-manager-openvpn-gnome
 
 if ! type "docker" > /dev/null; then
 	echo "Install Docker ..." \
@@ -97,12 +100,19 @@ if [ ! -d "$HOME/dotfiles" ]; then
 fi
 
 if [ "$(dpkg -l | grep spotify | wc -l)" == "0" ]; then
-	echo "Install Spotify ..." &&
-		sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys BBEBDCB318AD50EC6865090613B00F1FD2C19886 0DF731E45CE24F27EEEB1450EFDC8610341D9410 &&
-		sudo add-apt-repository "deb http://repository.spotify.com stable non-free" &&
-		sudo apt-get update &&
-		sudo apt-get install spotify-client
+	echo "Install Spotify ..." \
+		&& sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys BBEBDCB318AD50EC6865090613B00F1FD2C19886 0DF731E45CE24F27EEEB1450EFDC8610341D9410 \
+		&& sudo add-apt-repository "deb http://repository.spotify.com stable non-free" \
+		&& sudo apt-get update \
+		&& sudo apt-get install spotify-client
 fi
 
+# fucking skype does not work.   https://www.skype.com/de/download-skype/skype-for-linux/
+# if ! type "skype" > /dev/null ; then
+# 	echo "Installing skype ... " \
+# 		&& sudo add-apt-repository "deb http://archive.canonical.com/ $(lsb_release -sc) partner" \
+#  		&& sudo apt-get update \
+#  		&& sudo apt-get install skype && sudo apt-get -f install
+# fi
 
 echo "Done!"
