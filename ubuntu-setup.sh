@@ -86,8 +86,22 @@ if [ ! -f "$HOME/.ssh/id_rsa" ]; then
 fi
 
 if ! type "hub" > /dev/null; then
-	sudo curl https://hub.github.com/standalone -Lo /usr/bin/hub
-	sudo chmod 755 /usr/bin/hub
+	sudo curl https://hub.github.com/standalone -Lo /usr/bin/hub \
+		&& sudo chmod 755 /usr/bin/hub
+fi
+
+if ! type "kubectl" > /dev/null; then
+	NAME="$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)"
+	echo "Installing kubectl ${NAME} ..."
+	curl -LO "https://storage.googleapis.com/kubernetes-release/release/${NAME}/bin/linux/amd64/kubectl" \
+		&& chmod +x kubectl \
+		&& sudo mv kubectl /usr/local/bin/
+fi
+
+if ! type "minikube" > /dev/null; then
+	curl -Lo minikube https://storage.googleapis.com/minikube/releases/v0.23.0/minikube-linux-amd64 \
+		&& chmod +x minikube \
+		&& sudo mv minikube /usr/local/bin/
 fi
 
 if [ ! -d "$HOME/dotfiles" ]; then
