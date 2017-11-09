@@ -106,17 +106,27 @@ if ! type "kubectl" > /dev/null; then
 fi
 
 if ! type "minikube" > /dev/null; then
-	curl -Lo minikube https://storage.googleapis.com/minikube/releases/v0.23.0/minikube-linux-amd64 \
+	echo "Installing minikube ..." \
+		&& curl -Lo minikube https://storage.googleapis.com/minikube/releases/v0.23.0/minikube-linux-amd64 \
 		&& chmod +x minikube \
 		&& sudo mv minikube /usr/local/bin/
 fi
 
 if ! type "helm" > /dev/null; then
-	curl -Lo helm.tgz https://storage.googleapis.com/kubernetes-helm/helm-v2.7.0-linux-amd64.tar.gz \
+	echo "Installing helm ..." \
+		&& curl -Lo helm.tgz https://storage.googleapis.com/kubernetes-helm/helm-v2.7.0-linux-amd64.tar.gz \
 		&& tar -zxvf helm.tgz \
 		&& chmod +x linux-amd64/helm \
 		&& sudo mv linux-amd64/helm /usr/local/bin/helm \
 		&& rm -r linux-amd64 helm.tgz
+fi
+
+if ! type "vivaldi" > /dev/null; then
+	echo "Installing vivaldi ..." \
+		&& sudo add-apt-repository 'deb http://repo.vivaldi.com/archive/deb/ stable main' \
+		&& wget -qO- http://repo.vivaldi.com/archive/linux_signing_key.pub | sudo apt-key add - \
+		&& sudo apt update \
+		&& sudo apt install -y vivaldi-stable
 fi
 
 if [ ! -d "$HOME/dotfiles" ]; then
