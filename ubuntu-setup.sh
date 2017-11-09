@@ -104,6 +104,14 @@ if ! type "minikube" > /dev/null; then
 		&& sudo mv minikube /usr/local/bin/
 fi
 
+if ! type "helm" > /dev/null; then
+	curl -Lo helm.tgz https://storage.googleapis.com/kubernetes-helm/helm-v2.7.0-linux-amd64.tar.gz \
+		&& tar -zxvf helm.tgz \
+		&& chmod +x linux-amd64/helm \
+		&& sudo mv linux-amd64/helm /usr/local/bin/helm \
+		&& rm -r linux-amd64 helm.tgz
+fi
+
 if [ ! -d "$HOME/dotfiles" ]; then
 	echo "Install dotfiles ..."
 	git clone git@github.com:apinnecke/dotfiles.git ~/dotfiles
