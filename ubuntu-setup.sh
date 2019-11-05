@@ -5,10 +5,7 @@ set -e
 LISTS="$(grep -o '^[^#]*' /etc/apt/sources.list /etc/apt/sources.list.d/* | sort | uniq)"
 
 for p in \
-		graphics-drivers/ppa \
 		mozillateam/firefox-next \
-		ansible/ansible \
-		gophers/archive \
 	; do
 	if [[ "${LISTS}" != *"${p}"* ]]; then
 		sudo add-apt-repository -y "ppa:${p}"
@@ -29,7 +26,7 @@ sudo apt-get upgrade -y
 
 echo "Install dependencies and utilities ..."
 sudo apt-get install -y \
-	golang-1.9-go \
+	golang-1.13-go \
 	golang-glide \
 	net-tools \
 	ruby \
